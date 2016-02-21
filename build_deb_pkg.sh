@@ -1,5 +1,7 @@
 #!/bin/bash
 
+VERSION="$1"
+
 mkdir -p /tmp/pkg/etc
 mkdir -p /tmp/pkg/usr/share/libpam-script
 
@@ -20,7 +22,7 @@ fpm \
     --license 'BSD' \
     --url 'http://github.com/ragnar-johannsson/l2s' \
     --maintainer 'ragnar@igo.is' \
-    --version '0.1' \
+    --version "$VERSION" \
     --depends 'libpam-script' \
     --depends 'python'
 
