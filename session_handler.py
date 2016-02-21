@@ -18,9 +18,21 @@ def handler(func):
             if var not in os.environ:
                 return
 
-        valid_services = args[0].get("l2s", "services").split(",")
-        if os.environ["PAM_SERVICE"] in valid_services:
-            return func(*args, **kwargs)
+        try:
+            ignore_users = args[0].get("l2s", "ignore_users").split(",")
+            if os.environ["PAM_USER"] in ignore_users:
+                return
+        except:
+            pass
+
+        try:
+            valid_services = args[0].get("l2s", "services").split(",")
+            if os.environ["PAM_SERVICE"] not in valid_services:
+                return
+        except:
+            pass
+
+        return func(*args, **kwargs)
 
     return validator
 
