@@ -22,7 +22,7 @@ install: package
 .PHONY: clean
 clean: SHELL := /bin/bash
 clean:
-	docker rm --force l2s-build
-	docker rmi --force l2s-build
 	rm -rf .buildcontainer
 	rm -rf l2s*.deb
+	docker rmi --force l2s-build
+	docker rm --force l2s-build
