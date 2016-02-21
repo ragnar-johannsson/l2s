@@ -27,7 +27,7 @@ session optional pam_script.so
 
 ### Disclaimer
 
-Slack should not be used in place of a real audit log. This script was merely made for convenience. Messages to Slack are easily forged if the webhook URL is known and there is no redundancy handling in place should the Slack API endpoint be down.
+Slack should not be used in place of a real audit log. This script was merely made for convenience. Messages to Slack are easily forged if the webhook URL is known. Furthermore, there is no redundancy handling in place should the Slack API endpoint be down.
 
 ### License
 
