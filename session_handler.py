@@ -22,6 +22,9 @@ def handler(func):
             ignore_users = args[0].get("l2s", "ignore_users").split(",")
             if os.environ["PAM_USER"] in ignore_users:
                 return
+            if os.environ.get("PAM_RUSER"):
+                if os.environ["PAM_RUSER"] in ignore_users:
+                    return
         except:
             pass
 
